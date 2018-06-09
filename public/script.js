@@ -3,9 +3,9 @@ new Vue({
     data:{
         total:0,
         items:[
-            { id:1, title:"Item1", cost:2},
-            { id:2, title:"Item2", cost:3},
-            { id:3, title:"Item3", cost :1}
+            { id:1, title:"Item1", price: 2},
+            { id:2, title:"Item2", price: 3},
+            { id:3, title:"Item3", price: 1}
         ],
         cart:[]
     },
@@ -15,19 +15,17 @@ new Vue({
             var itemInCart = this.cart.find(function(cartItem){
                 return cartItem.id == item.id;
             })
-            this.total += item.cost;
+            this.total += item.price;
             if(itemInCart){
                 itemInCart.qty++;
                 return;
             }
             this.cart.push({
                  id:item.id,
+                 price:item.price,
                  title: item.title,
                  qty: 1
             });
-            
-     
-            this.total += item.cost;
         }
     }
 });
